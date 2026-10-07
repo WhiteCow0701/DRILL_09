@@ -17,6 +17,8 @@ while running:
 	background.draw(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
 	character.clip_draw(frame * 100, 100, 100, 100, x, y)
 	update_canvas()
+	frame = (frame + 1) % 8
+	delay(0.05)
 	delay(0.05)
 
 
