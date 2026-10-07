@@ -2,6 +2,8 @@ from pico2d import *
 
 
 SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 1024
+MOVE_SPEED = 5
+FRAME_DELAY = 0.05
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 background = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
@@ -33,15 +35,15 @@ def update_position():
 	moving = any(keys.values())
 
 	if keys[SDLK_LEFT]:
-		x -= 5
+		x -= MOVE_SPEED
 		character_row = 3
 	if keys[SDLK_RIGHT]:
-		x += 5
+		x += MOVE_SPEED
 		character_row = 2
 	if keys[SDLK_UP]:
-		y += 5
+		y += MOVE_SPEED
 	if keys[SDLK_DOWN]:
-		y -= 5
+		y -= MOVE_SPEED
 
 	x = clamp(50, x, SCREEN_WIDTH - 50)
 	y = clamp(50, y, SCREEN_HEIGHT - 50)
@@ -61,8 +63,7 @@ while running:
 	character.clip_draw(frame * 100, animation_row() * 100, 100, 100, x, y)
 	update_canvas()
 	frame = (frame + 1) % 8
-	delay(0.05)
-	delay(0.05)
+	delay(FRAME_DELAY)
 
 
 close_canvas()
