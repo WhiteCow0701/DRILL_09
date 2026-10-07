@@ -51,8 +51,8 @@ def update_position():
 
 def animation_row():
 	if moving:
-		return character_row
-	return character_row - 2 if character_row >= 2 else character_row
+		return 1 if character_row == 2 else 0
+	return 3 if character_row == 0 else 2
 
 
 while running:
