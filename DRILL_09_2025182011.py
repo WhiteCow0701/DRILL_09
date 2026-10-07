@@ -2,6 +2,7 @@ from pico2d import *
 
 
 SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 1024
+open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 background = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
 running = True
@@ -50,9 +51,6 @@ def animation_row():
 	if moving:
 		return character_row
 	return character_row - 2 if character_row >= 2 else character_row
-
-
-open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
 while running:
