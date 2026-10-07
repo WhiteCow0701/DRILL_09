@@ -7,6 +7,7 @@ character = load_image('animation_sheet.png')
 running = True
 x, y = SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2
 frame = 0
+keys = {SDLK_LEFT: False, SDLK_RIGHT: False, SDLK_UP: False, SDLK_DOWN: False}
 
 
 def handle_events():
@@ -17,6 +18,10 @@ def handle_events():
 			running = False
 		elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
 			running = False
+		elif event.type == SDL_KEYDOWN and event.key in keys:
+			keys[event.key] = True
+		elif event.type == SDL_KEYUP and event.key in keys:
+			keys[event.key] = False
 
 
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
