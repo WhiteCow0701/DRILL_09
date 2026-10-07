@@ -24,6 +24,19 @@ def handle_events():
 			keys[event.key] = False
 
 
+def update_position():
+	global x, y
+
+	if keys[SDLK_LEFT]:
+		x -= 5
+	if keys[SDLK_RIGHT]:
+		x += 5
+	if keys[SDLK_UP]:
+		y += 5
+	if keys[SDLK_DOWN]:
+		y -= 5
+
+
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
