@@ -43,13 +43,19 @@ def update_position():
 		y -= 5
 
 
+def animation_row():
+	if moving:
+		return character_row
+	return character_row - 2 if character_row >= 2 else character_row
+
+
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
 while running:
 	clear_canvas()
 	background.draw(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-	character.clip_draw(frame * 100, character_row * 100, 100, 100, x, y)
+	character.clip_draw(frame * 100, animation_row() * 100, 100, 100, x, y)
 	update_canvas()
 	handle_events()
 	update_position()
