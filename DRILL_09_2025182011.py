@@ -8,6 +8,8 @@ running = True
 x, y = SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2
 frame = 0
 keys = {SDLK_LEFT: False, SDLK_RIGHT: False, SDLK_UP: False, SDLK_DOWN: False}
+character_row = 0
+moving = False
 
 
 def handle_events():
@@ -25,12 +27,16 @@ def handle_events():
 
 
 def update_position():
-	global x, y
+	global x, y, character_row, moving
+
+	moving = any(keys.values())
 
 	if keys[SDLK_LEFT]:
 		x -= 5
+		character_row = 3
 	if keys[SDLK_RIGHT]:
 		x += 5
+		character_row = 2
 	if keys[SDLK_UP]:
 		y += 5
 	if keys[SDLK_DOWN]:
