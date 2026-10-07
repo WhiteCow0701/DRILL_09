@@ -12,6 +12,7 @@ open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 while running:
 	clear_canvas()
+	background.draw(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
 	update_canvas()
 	delay(0.05)
 
