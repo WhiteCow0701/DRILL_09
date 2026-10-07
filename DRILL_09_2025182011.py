@@ -42,6 +42,9 @@ def update_position():
 	if keys[SDLK_DOWN]:
 		y -= 5
 
+	x = clamp(50, x, SCREEN_WIDTH - 50)
+	y = clamp(50, y, SCREEN_HEIGHT - 50)
+
 
 def animation_row():
 	if moving:
