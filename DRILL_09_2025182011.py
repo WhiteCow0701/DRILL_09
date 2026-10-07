@@ -9,6 +9,14 @@ x, y = SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2
 frame = 0
 
 
+def handle_events():
+	global running
+
+	for event in get_events():
+		if event.type == SDL_QUIT:
+			running = False
+
+
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
