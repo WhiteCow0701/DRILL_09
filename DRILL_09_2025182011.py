@@ -56,12 +56,12 @@ open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
 while running:
+	handle_events()
+	update_position()
 	clear_canvas()
 	background.draw(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
 	character.clip_draw(frame * 100, animation_row() * 100, 100, 100, x, y)
 	update_canvas()
-	handle_events()
-	update_position()
 	frame = (frame + 1) % 8
 	delay(0.05)
 	delay(0.05)
