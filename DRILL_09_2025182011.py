@@ -52,7 +52,7 @@ def update_position():
 def animation_row():
 	if moving:
 		return 1 if character_row == 2 else 0
-	return 3 if character_row == 0 else 2
+	return 3 if character_row in (0, 2) else 2
 
 
 while running:
